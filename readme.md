@@ -2,7 +2,7 @@
 
 ## Requirements:
 * Docker & Docker Compose
-* Dockerized Odoo
+* [Dockerized Odoo](https://github.com/iterativo-git/dockerdoo#readme) 
 
 ### Start the server:
 ```shell
