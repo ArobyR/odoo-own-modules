@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="record_list">
+      <field name="name">product list</field>
+      <field name="model">invoice.invoice</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="pather_id"/>
+          <field name="date_invoice"/>
+        </tree>
+      </field>
+    </record>
+       
+    <record model="ir.ui.view" id="menu_list">
+      <field name="name">list</field>
+      <field name="model">invoice.invoice</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="partner_id"/>
+              </group>
+              <group>
+                <field name="date_invoice"/>
+              </group>                  
+              <field name="product_ids">
+                <tree>
+                  <field name="produt_id"/>
+                  <field name="nombre_product"/>
+                  <field name="precio"/>
+                  <field name="cantidad"/>
+                  <field name="subtotal"/>
+                </tree>
+              </field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window">
+      <field name="name">window</field>
+      <field name="res_model">invoice.invoice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <!-- Top menu item -->
+    <menuitem name="facturacion" id="menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Menu 2" id="menu_1" parent="menu_root"/>
+  <!-- actions -->
+    <menuitem name="List" id="menu_1_list" parent="menu_1"
+              action="action_window"/>
+
+<!--
+    <menuitem name="Server to list" id="facturacion" parent="facturacion.menu_2"
+              action="facturacion.action_server"/>
+-->
+  </data>
+</odoo>
