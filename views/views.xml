@@ -35,6 +35,13 @@
                 </tree>
               </field>
             </group>
+            <group>
+              <group>
+              </group>
+              <group>
+                <field name="total" />
+              </group>
+            </group>
           </sheet>
         </form>
       </field>
