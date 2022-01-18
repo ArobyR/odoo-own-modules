@@ -12,6 +12,13 @@ class Invoice(models.Model):
     partner_id = fields.Many2one("res.partner", string="Partner ID",
             required=True)
 
+    total = fields.Float(compute="_calc_total", string="Total")
+
+    @api.depends("product_ids.subtotal")
+    def _calc_total(self):
+        for record in self:
+            self.total = sum(line.subtotal for line in record.product_ids)
+    
 
 class Product(models.Model):
     _name = "product.line"
@@ -31,4 +38,5 @@ class Product(models.Model):
     @api.onchange("produt_id")
     def _onchange_product_id(self):
         self.nombre_product = self.produt_id.name
+        self.precio = self.produt_id.list_price
 
