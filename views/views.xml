@@ -19,9 +19,11 @@
         <form>
           <sheet>
             <button name="inherited_action" type="object" class="btn btn-primary">Agregar</button>
+            <br></br>
             <group>
               <group>
                 <field name="partner_id"/>
+                <field name="invoice_generated" />
               </group>
               <group>
                 <field name="date_invoice"/>
