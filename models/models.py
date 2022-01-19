@@ -22,7 +22,7 @@ class Invoice(models.Model):
             product_lines.append((0, 0, 
                     {
                         "product_id": line.product_id.id,
-                        "account_id": 1,
+                        "account_id": 159,
                         "name": line.nombre_product,
                         "quantity": line.cantidad,
                         "price_unit": line.precio,
@@ -34,7 +34,8 @@ class Invoice(models.Model):
         self.env["account.move"].create({
                 "partner_id": self.partner_id.id,
                 "invoice_date": self.date_invoice,
-                "line_ids": self._get_products_formated(),
+                "invoice_line_ids": self._get_products_formated(),
+                "move_type": "out_invoice",
             })
 
     @api.depends("product_ids.subtotal")
