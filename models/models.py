@@ -53,6 +53,10 @@ class Invoice(models.Model):
             })
         self.invoice_generated = link.id
 
+    def action_validate(self):
+        """ confirm the invoice """ 
+        self.invoice_generated.action_post()
+
     @api.depends("product_ids.subtotal")
     def _calc_total(self):
         """ Calculate the total """ 
