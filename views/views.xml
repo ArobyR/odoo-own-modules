@@ -11,6 +11,14 @@
         </tree>
       </field>
     </record>
+
+    <report
+        id="report_invoice"
+        model="invoice.invoice"
+        string="Invoice report"
+        report_type="qweb-pdf"
+        name="facturacion.report_invoice"
+    />
        
     <record model="ir.ui.view" id="menu_list">
       <field name="name">list</field>
@@ -20,6 +28,8 @@
           <sheet>
             <button name="inherited_action" type="object" class="btn btn-primary">Agregar</button>
             <br></br>
+            <br></br>
+            <button name="action_validate" type="object" class="btn btn-danger">Validar</button>
             <group>
               <group>
                 <field name="partner_id"/>
