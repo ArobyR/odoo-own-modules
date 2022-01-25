@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="inherited_module.list">
+      <field name="name">inherited_module list</field>
+      <field name="model">invoice.invoice</field>
+      <field name="inherit_id" ref="facturacion.menu_list"/>
+      <field name="arch" type="xml">
+        <field name="date_invoice" position="after">
+          <field name="partner"/>
+        </field>
+      </field>
+    </record>
+    <!--
+    <template id="report_saleorder" inherit_id="facturacion.report_facturacion">
+      <xpath expr="//div[@class='page']/div[@class='row']" position="inside">
+        <h3>
+          <span>Hola mundo</span>
+          <span position="move" t-field="self.partner.name"></span>
+        </h3>
+      </xpath>
+    </template>
+    -->
+   </data>
+</odoo>

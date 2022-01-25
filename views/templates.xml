@@ -1,0 +1,10 @@
+<odoo>
+    <template id="report_saleorder" inherit_id="facturacion.report_facturacion">
+      <xpath expr="//div[@class='page']/div[@class='row']" position="inside">
+        <h3>
+          <span>Hola mundo</span>
+          <span t-field="self.partner.name"/>
+        </h3>
+      </xpath>
+    </template>
+</odoo>
