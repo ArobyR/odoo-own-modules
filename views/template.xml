@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <template id="report_invoice">
+        <template id="report_facturacion">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="self">
                     <t t-call="web.external_layout">
@@ -10,7 +10,7 @@
                                 Cliente:
                                 <span t-field="self.partner_id.name"></span>
                               </h3>
-                              <h3  class="col-7">
+                              <h3 class="col-7">
                                 Fecha:
                                 <span t-field="self.date_invoice"></span>
                               </h3>

@@ -17,7 +17,7 @@
         model="invoice.invoice"
         string="Invoice report"
         report_type="qweb-pdf"
-        name="facturacion.report_invoice"
+        name="facturacion.report_facturacion"
     />
        
     <record model="ir.ui.view" id="menu_list">
