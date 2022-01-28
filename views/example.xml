@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="record_list">
+      <field name="name">Product Sale</field>
+      <field name="model">product.sale</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="partner_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="menu_list">
+      <field name="name">list</field>
+      <field name="model">product.sale</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <button name="create_sale" type="object" class="btn btn-primary">Create sale</button>
+              <br></br>
+              <br></br>
+              <button name="send_email" type="object" class="btn btn-secondary">Send an email</button>
+            </group>
+           <field name="partner_ids">
+              <tree>
+                <field name="name"/>
+                <field name="phone"/>
+              </tree>
+            </field>
+           <group>
+              <field name="product_ids">
+                <tree>
+                  <field name="product_id"/>
+                  <field name="product_name"/>
+                  <field name="price"/>
+                  <field name="subtotal"/>
+                </tree>
+              </field>
+            </group>
+            <group>
+              <group>
+              </group>
+              <group>
+                <field name="total" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window">
+      <field name="name">window</field>
+      <field name="res_model">product.sale</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <!-- Top menu item -->
+    <menuitem name="Product Sale" id="menu_root"/>
+    <!-- menu categories-->
+        <menuitem name="Menu 2" id="menu_1" parent="menu_root"/>
+  <!-- actions -->
+    <menuitem name="List" id="menu_1_list" parent="menu_1"
+              action="action_window"/>
+
+<!--
+    <menuitem name="Server to list" id="facturacion" parent="facturacion.menu_2"
+              action="facturacion.action_server"/>
+-->
+  </data>
+</odoo>
