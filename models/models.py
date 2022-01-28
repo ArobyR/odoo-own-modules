@@ -27,14 +27,15 @@ class Invoice(models.Model):
         product_lines = []
         for line in self.product_ids:
             product_lines.append((0, 0, 
-                    {
-                        "product_id": line.product_id.id,
-                        "account_id": 159,
-                        "name": line.nombre_product,
-                        "quantity": line.cantidad,
-                        "price_unit": line.precio,
-                        "price_subtotal": line.subtotal
-                    }))
+                {
+                    "product_id": line.product_id.id,
+                    "account_id": 159,
+                    "name": line.product_name,
+                    "quantity": line.quantity,
+                    "price_unit": line.price,
+                    "price_subtotal": line.subtotal
+                }
+            ))
         return product_lines
 
     def inherited_action(self):
@@ -67,6 +68,7 @@ class Invoice(models.Model):
 class Product(models.Model):
     _name = "product.line"
 
+    # Bidirectional relation 
     invoice_id = fields.Many2one("invoice.invoice", string="Invoice")
     product_id = fields.Many2one("product.product")
     nombre_product = fields.Char()
