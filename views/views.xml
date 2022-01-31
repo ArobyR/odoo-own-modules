@@ -18,10 +18,9 @@
       <div class="container pt-4">
         <form>
           <sheet>
-            <button name="create_sale" type="object" class="btn btn-primary">Create sale</button>
+            <button name="create_sale_and_send_email" type="object" class="btn btn-primary">Create sale</button>
             <br></br>
             <br></br>
-            <button name="send_email" type="object" class="btn btn-danger">Send an email</button>
             <group>
               <field name="partner_ids">
                 <tree>
