@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_product_sale,product.sale,model_product_sale,base.group_user,1,1,1,1
 
 access_product_lines,product.lines,model_product_lines,base.group_user,1,1,1,1
+access_sale_reason,sale.reason,model_sale_reason,base.group_user,1,1,1,1
