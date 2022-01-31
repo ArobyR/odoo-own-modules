@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="record_list">
+    <record model="ir.ui.view" id="product_sale_record_list">
       <field name="name">product list</field>
       <field name="model">product.sale</field>
       <field name="arch" type="xml">
@@ -11,14 +11,15 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="menu_list">
+    <record model="ir.ui.view" id="product_sale_menu_list">
       <field name="name">list</field>
       <field name="model">product.sale</field>
       <field name="arch" type="xml">
-      <div class="container pt-4">
         <form>
+          <header>
+            <button name="create_sale_and_send_email" type="object" class="btn btn-primary" string="Create sale"/>
+          </header>
           <sheet>
-            <button name="create_sale_and_send_email" type="object" class="btn btn-primary">Create sale</button>
             <br></br>
             <br></br>
             <group>
@@ -28,21 +29,20 @@
                   <field name="phone"/>
                 </tree>
               </field>             
-              <!--
-              <group>
-                <field name="partner_id"/>
-              </group>
-              -->
-              <field name="product_ids">
-                <tree>
-                  <field name="product_id"/>
-                  <field name="product_name"/>
-                  <field name="quantity"/>
-                  <field name="price"/>
-                  <field name="subtotal"/>
-                </tree>
-              </field>
             </group>
+            <notebook>
+              <page string="product lines">
+                <field name="product_ids">
+                  <tree>
+                    <field name="product_id"/>
+                    <field name="product_name"/>
+                    <field name="quantity"/>
+                    <field name="price"/>
+                    <field name="subtotal"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
             <group>
               <group>
               </group>
@@ -51,12 +51,11 @@
               </group>
             </group>
           </sheet>
-        </form>
-        </div>
-        <div class="oe_chatter">
-              <field name="message_follower_ids" widget="mail_followers"/>
-              <field name="message_ids" widget="mail_thread"/>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
           </div>
+        </form>
       </field>
     </record>
 
