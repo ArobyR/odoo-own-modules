@@ -13,6 +13,9 @@ class ProductSale(models.Model):
     partner_ids = fields.Many2many("res.partner", string="Partner")
     product_ids = fields.One2many("product.lines", "sale_id")
     total = fields.Float(compute="_calc_total", string="Total")
+    reason_id = fields.Many2one("sale.reason", string="Reason")
+    is_other = fields.Boolean()
+    reason = fields.Char()
 
     def _get_products_formatted(self):
         product_lines = []
@@ -32,7 +35,7 @@ class ProductSale(models.Model):
         # to create channel message_subscribe()
         # to create mail message_post()
         if self.message_subscribe(partner_ids, channel):
-            self.message_post(body, subject="Mensaje test")
+            self.message_post(body=body, subject="Mensaje test")
              
     def create_sale_and_send_email(self):
         sale_names = []
@@ -81,4 +84,11 @@ class Product(models.Model):
         """ To update the fields """
         self.product_name = self.product_id.name
         self.price = self.product_id.list_price
+
+
+class SaleReason(models.Model):
+    _name = "sale.reason"
+
+    name = fields.Char()
+    active = fields.Boolean(default=True, required=True)
 
