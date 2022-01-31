@@ -28,14 +28,12 @@ class ProductSale(models.Model):
             ))
         return product_lines
 
-    # Send email
     def send_email(self, channel=[], partner_ids=[], body=""):
         # to create channel message_subscribe()
         # to create mail message_post()
         if self.message_subscribe(partner_ids, channel):
             self.message_post(body, subject="Mensaje test")
              
-    # Create a sale and send email...
     def create_sale_and_send_email(self):
         sale_names = []
         for line in self.partner_ids:
