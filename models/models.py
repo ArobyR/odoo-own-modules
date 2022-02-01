@@ -4,11 +4,11 @@ from odoo import models, fields, api
 
 
 class ProductSale(models.Model):
-    _name = 'product.sale'
-    _inherit = ['mail.thread']
-    _description = 'Product Sale'
+    _name = "product.sale"
+    _inherit = ["mail.thread"]
+    _description = "Product Sale"
 
-    sale_objt = ''
+    sale_objt = ""
 
     partner_ids = fields.Many2many("res.partner", string="Partner")
     product_ids = fields.One2many("product.lines", "sale_id")
@@ -51,7 +51,7 @@ class ProductSale(models.Model):
         formatted_sales_names = " ".join(sale_names)
         str_body = f"Listado de nombres: {formatted_sales_names}"
 
-        members = self.env['mail.channel'].browse(6).channel_last_seen_partner_ids
+        members = self.env["mail.channel"].browse(6).channel_last_seen_partner_ids
         partner_ids_from_channel = [p.partner_id.id for p in members]
         
         self.send_email([6], partner_ids_from_channel, str_body)
@@ -64,7 +64,7 @@ class ProductSale(models.Model):
  
 
 class Product(models.Model):
-    _name = 'product.lines'
+    _name = "product.lines"
 
     sale_id = fields.Many2one("product.sale")
     product_id = fields.Many2one("product.product")
