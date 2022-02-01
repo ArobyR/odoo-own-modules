@@ -22,14 +22,16 @@
           <sheet>
             <br></br>
             <br></br>
-            <group>
-              <field name="partner_ids">
-                <tree>
-                  <field name="name"/>
-                  <field name="phone"/>
-                </tree>
-              </field>             
-            </group>
+            <notebook>
+              <page string="partner lines">
+                <field name="partner_ids">
+                  <tree>
+                    <field name="name"/>
+                    <field name="phone"/>
+                  </tree>
+                </field>             
+              </page>
+            </notebook>
             <notebook>
               <page string="product lines">
                 <field name="product_ids">
