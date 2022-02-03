@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class inherited_module(models.Model):
+class InheritedModule(models.Model):
     _inherit = 'invoice.invoice'
 
     partner = fields.Many2one("res.partner", string="Partner")
