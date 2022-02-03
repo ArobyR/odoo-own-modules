@@ -40,6 +40,7 @@
               </group>                  
               <field name="product_ids">
                 <tree>
+                  <field name="invoice_id" invisible="1"/>
                   <field name="product_id"/>
                   <field name="nombre_product"/>
                   <field name="precio"/>
@@ -52,7 +53,7 @@
               <group>
               </group>
               <group>
-                <field name="total" />
+                <field name="total"/>
               </group>
             </group>
           </sheet>
