@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_facturacion_facturacion,facturacion.facturacion,model_facturacion_facturacion,base.group_user,1,1,1,1
+
+access_invoice_invoice,invoice.invoice,model_invoice_invoice,base.group_user,1,1,1,1
+
+access_product_line,product.line,model_product_line,base.group_user,1,1,1,1
