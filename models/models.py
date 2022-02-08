@@ -71,7 +71,7 @@ class Product(models.Model):
     # Bidirectional relation 
     invoice_id = fields.Many2one("invoice.invoice", string="Invoice")
     product_id = fields.Many2one("product.product")
-    nombre_product = fields.Char()
+    product_name = fields.Char()
     precio = fields.Float(required=True)
     cantidad = fields.Integer(required=True, default=1)
     subtotal = fields.Float(compute="_calc_subtotal")
@@ -85,7 +85,7 @@ class Product(models.Model):
     @api.onchange("product_id")
     def _onchange_product_id(self):
         """ To update the fields """
-        self.nombre_product = self.product_id.name
+        self.product_name = self.product_id.name
         self.precio = self.product_id.list_price
 
 
