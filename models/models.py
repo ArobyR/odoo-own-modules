@@ -102,6 +102,16 @@ class Client(models.Model):
         for partner in self:
            count += Invoice_obj.search_count([("partner_id", "=", partner.id)])
         self.invoices_count = count
+
+    def action_window_btn(self):
+        obj = {
+                "type": "ir.actions.act_window",
+                "name": "invoice state",
+                "res_model": "invoice.invoice",
+                "views": [[False, "tree"], [False, "form"]],
+                "domain": [["partner_id", "=", self.id]],
+        }
+        return obj
 #         all_partners = self.search([("id", "child_of", self.ids)])
 #         all_partners.read(["parent_id"])
 # 
