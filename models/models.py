@@ -96,17 +96,22 @@ class Client(models.Model):
     string="# of invoices", default=0)
     
     def _compute_invoices_count(self):
-        all_partners = self.search(["id", "child_of", self.ids])
-        all_partners.read(["parent_id"])
-
-        invoices_group = self.env["account.move"].read_group(
-                domain=[("partner_id", "in", all_partners.ids)],
-                fields=["partner_id"], groupby=["partner_id"]
-            )
-        for group in invoices_group:
-            partner = self.browse(group["partner_id"][0])
-            while partner:
-                if partner in self:
-                    partner.invoices_count += group["partner_id_count"]
-                partner = partner.parent_id
-
+        # Attemp with search
+        count = 0
+        for partner in self:
+           count += self.env["invoice.invoice"].search_count([("partner_id", "=", partner.id)])
+        self.invoices_count = count
+#         all_partners = self.search([("id", "child_of", self.ids)])
+#         all_partners.read(["parent_id"])
+# 
+#         invoices_group = self.env["account.move"].read_group(
+#                 domain=[("partner_id", "in", all_partners.ids)],
+#                 fields=["partner_id"], groupby=["partner_id"]
+#             )
+#         for group in invoices_group:
+#             partner = self.browse(group["partner_id"][0])
+#             while partner:
+#                 if partner in self:
+#                     partner.invoices_count += group["partner_id_count"]
+#                 partner = partner.parent_id
+# 
