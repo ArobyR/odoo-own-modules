@@ -96,10 +96,11 @@ class Client(models.Model):
     string="# of invoices", default=0)
     
     def _compute_invoices_count(self):
+        Invoice_obj = self.env["invoice.invoice"]
         # Attemp with search
         count = 0
         for partner in self:
-           count += self.env["invoice.invoice"].search_count([("partner_id", "=", partner.id)])
+           count += Invoice_obj.search_count([("partner_id", "=", partner.id)])
         self.invoices_count = count
 #         all_partners = self.search([("id", "child_of", self.ids)])
 #         all_partners.read(["parent_id"])
