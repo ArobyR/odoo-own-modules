@@ -28,7 +28,7 @@
                               <tbody>
                                 <tr t-foreach="self.product_ids" t-as="invoice">
                                   <td>
-                                    <span t-field="invoice.nombre_product"/>
+                                    <span t-field="invoice.product_name"/>
                                   </td>
                                   <td>
                                     <span t-field="invoice.precio"/>
