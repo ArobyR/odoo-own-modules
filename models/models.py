@@ -112,7 +112,10 @@ class Client(models.Model):
                 "domain": [["partner_id", "=", self.id]],
         }
         return obj
+<<<<<<< HEAD
     
+=======
+>>>>>>> e9b18bb06b73f4a2a8e3f1d5fcbd8d70869e8b27
 #         all_partners = self.search([("id", "child_of", self.ids)])
 #         all_partners.read(["parent_id"])
 # 
