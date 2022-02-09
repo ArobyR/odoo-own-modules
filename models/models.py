@@ -6,7 +6,7 @@ from odoo import models, fields, api
 class Invoice(models.Model):
     _name = "invoice.invoice"
 
-    date_invoice = fields.Datetime(default=lambda self: fields.Datetime.now(),
+    date_invoice = fields.Datetime(default=lambda: fields.Datetime.now(),
             required=True)
     product_ids = fields.One2many("product.line", "invoice_id")
     partner_id = fields.Many2one("res.partner", string="Partner ID",
@@ -72,21 +72,21 @@ class Product(models.Model):
     invoice_id = fields.Many2one("invoice.invoice", string="Invoice")
     product_id = fields.Many2one("product.product")
     product_name = fields.Char()
-    precio = fields.Float(required=True)
-    cantidad = fields.Integer(required=True, default=1)
+    price = fields.Float(required=True)
+    quantity = fields.Integer(required=True, default=1)
     subtotal = fields.Float(compute="_calc_subtotal")
 
-    @api.depends("precio", "cantidad")
+    @api.depends("price", "quantity")
     def _calc_subtotal(self):
         """ Calculate the subtotal """ 
         for record in self:
-            record.subtotal = record.precio * record.cantidad
+            record.subtotal = record.price * record.quantity
 
     @api.onchange("product_id")
     def _onchange_product_id(self):
         """ To update the fields """
         self.product_name = self.product_id.name
-        self.precio = self.product_id.list_price
+        self.price = self.product_id.list_price
 
 
 class Client(models.Model):
@@ -112,10 +112,7 @@ class Client(models.Model):
                 "domain": [["partner_id", "=", self.id]],
         }
         return obj
-<<<<<<< HEAD
-    
-=======
->>>>>>> e9b18bb06b73f4a2a8e3f1d5fcbd8d70869e8b27
+
 #         all_partners = self.search([("id", "child_of", self.ids)])
 #         all_partners.read(["parent_id"])
 # 
