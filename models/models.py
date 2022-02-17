@@ -113,18 +113,3 @@ class Client(models.Model):
             "domain": [["partner_id", "=", self.id]],
         }
         return obj
-
-#         all_partners = self.search([("id", "child_of", self.ids)])
-#         all_partners.read(["parent_id"])
-#
-#         invoices_group = self.env["account.move"].read_group(
-#                 domain=[("partner_id", "in", all_partners.ids)],
-#                 fields=["partner_id"], groupby=["partner_id"]
-#             )
-#         for group in invoices_group:
-#             partner = self.browse(group["partner_id"][0])
-#             while partner:
-#                 if partner in self:
-#                     partner.invoices_count += group["partner_id_count"]
-#                 partner = partner.parent_id
-#
