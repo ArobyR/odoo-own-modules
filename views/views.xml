@@ -1,0 +1,51 @@
+<odoo>
+    <!-- explicit list view definition 
+    <record model="ir.ui.view" id="qweb_report_module_list">
+      <field name="name">Qweb_report_module list</field>
+      <field name="model">report.module</field>
+      <field name="arch" type="xml">
+      </field>
+    </record>
+-->
+    <record model="ir.ui.view" id="menu_list">
+      <field name="name">list</field>
+      <field name="model">report.module</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <button name="create_report" type="object" class="btn btn-primary">Create Report</button>
+            <br></br>
+            <group>
+              <group>
+                <field name="views_qweb_id"/>
+                <field name="xpath_route"/>
+                <field name="position"/>
+              </group>
+            </group>
+              <field name="info_report_id">
+                <tree editable="bottom">
+                  <field name="received_by"/>
+                  <field name="created_by"/>
+                  <field name="client"/>
+                </tree>
+              </field>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="qweb_report_module_action_window">
+      <field name="name">Qweb_report_module window</field>
+      <field name="res_model">report.module</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Report Module" id="menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Menu 2" id="menu_1" parent="menu_root"/>
+  <!-- actions -->
+    <menuitem name="List" id="menu_1_list" parent="menu_1"
+              action="qweb_report_module_action_window"/>
+</odoo>
