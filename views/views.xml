@@ -1,12 +1,15 @@
 <odoo>
-    <!-- explicit list view definition 
+    <!-- explicit list view definition -->
     <record model="ir.ui.view" id="qweb_report_module_list">
       <field name="name">Qweb_report_module list</field>
       <field name="model">report.module</field>
       <field name="arch" type="xml">
+        <tree>
+          <field name="info_report_id"/>
+        </tree>
       </field>
     </record>
--->
+
     <record model="ir.ui.view" id="menu_list">
       <field name="name">list</field>
       <field name="model">report.module</field>
