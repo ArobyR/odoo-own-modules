@@ -19,6 +19,12 @@ class ReportModule(models.Model):
 
     genered_qweb_view = fields.Many2one('ir.ui.view')
 
+    def unlink(self):
+        if self.genered_qweb_view:
+            self.genered_qweb_view.unlink()
+
+        return super(ReportModule, self).unlink()
+
     def create_report(self):
         if self.genered_qweb_view:
             self.genered_qweb_view.unlink()
