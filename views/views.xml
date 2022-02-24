@@ -26,6 +26,7 @@
                 <field name="xpath_route"/>
                 <field name="position"/>
                 <field name="genered_qweb_view" invisible="1"/>
+                <field name="condition"/>
               </group>
             </group>
               <field name="info_report_id">
