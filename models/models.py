@@ -17,7 +17,9 @@ class ReportModule(models.Model):
     views_qweb_id = fields.Many2one(
         'ir.ui.view', domain="[('type', '=', 'qweb')]", string='Vista')
 
-    condition = fields.Char(string='Condition', default='True == True')
+    w_condition = fields.Boolean(string='With condition')
+    condition = fields.Char(string='Condition', default='True == True',
+                            required=True)
     genered_qweb_view = fields.Many2one('ir.ui.view')
 
     def unlink(self):
