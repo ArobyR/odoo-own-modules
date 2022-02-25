@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+<data noupdate="0">
+   <record id="demo_cron" model="ir.cron">
+       <field name="name">Reset: consumed quantity by product every month</field>
+       <field name="model_id" ref="model_product_limit"/>
+       <field name="state">code</field>
+       <field name="code">model.cron_reset_product_qty_consumed_to_zero()</field>
+       <field name="user_id" ref="base.user_root"/>
+       <field name='interval_number'>1</field>
+       <field name='interval_type'>days</field>
+       <field name="numbercall">-1</field>
+       <field name="doall" eval="False"/>
+       <field name="nextcall" >2020-02-14 11:08:28</field>   <!--Static-->
+   </record>
+
+   <record id="demo_cron01" model="ir.cron">
+       <field name="name">Reset: consumed quantity every month</field>
+       <field name="model_id" ref="model_category_limit"/>
+       <field name="state">code</field>
+       <field name="code">model.cron_reset_product_quantity_consumed_to_zero()</field>
+       <field name="user_id" ref="base.user_root"/>
+       <field name='interval_number'>1</field>
+       <field name='interval_type'>days</field>
+       <field name="numbercall">-1</field>
+       <field name="doall" eval="False"/>
+       <field name="nextcall" >2020-02-14 11:08:28</field>   <!--Static-->
+   </record>
+</data>
+</odoo>
