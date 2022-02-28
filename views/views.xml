@@ -27,14 +27,20 @@
                 <field name="position"/>
                 <field name="genered_qweb_view" invisible="1"/>
                 <field name="w_condition"/>
+                <field name="w_mockup"/>
                 <field name="condition" attrs="{'invisible':[('w_condition', '=', False)]}"/>
               </group>
             </group>
+            <div attrs="{'invisible':[('w_mockup', '=', True)]}">
               <field name="info_report_id">
                 <tree editable="bottom">
                   <field name="description"/>
                 </tree>
               </field>
+            </div>
+            <div attrs="{'invisible':[('w_mockup', '=', False)]}">
+              <field name="mockup"/>
+            </div>
           </sheet>
         </form>
       </field>
