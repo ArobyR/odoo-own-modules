@@ -16,7 +16,7 @@ class WebsiteCustomJs(WebsiteSale):
         category_limit = http.request.env['category.limit'].search([
             ('partner_id', '=', user_id),
             ('category_id', '=', product_category_id)
-        ])
+        ], limit=1)
         if int(add_qty) >= category_limit.limit or (int(add_qty) + category_limit.quantity_consumed) >= category_limit.limit:
             return http.request.render("website_custom_js.add_cart_limited_category", {})
 

@@ -29,6 +29,7 @@
         'views/template2.xml',
         'views/hview_conf.xml',
         'views/cron1.xml',
+        'views/hview_conf.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
