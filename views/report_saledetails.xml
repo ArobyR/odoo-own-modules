@@ -1,0 +1,9 @@
+<odoo>
+  <data>
+    <template id="external_layout_background_inherit_2" inherit_id="point_of_sale.report_saledetails">
+      <xpath expr="//div[@class='text-center']/strong" position="after">
+        <h3>Estoy funcionando de maravilla</h3>
+      </xpath>
+    </template>
+  </data>
+</odoo>

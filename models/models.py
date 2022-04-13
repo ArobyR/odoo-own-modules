@@ -17,9 +17,6 @@ class ReportModule(models.Model):
     views_qweb_id = fields.Many2one(
         'ir.ui.view', domain="[('type', '=', 'qweb')]", string='Vista')
 
-    w_condition = fields.Boolean(string='With condition')
-    condition = fields.Char(string='Condition', default='True == True',
-                            required=True)
     genered_qweb_view = fields.Many2one('ir.ui.view')
 
     def unlink(self):
@@ -48,7 +45,7 @@ class ReportModule(models.Model):
                                        <data inherit_id="{self.views_qweb_id.xml_id}" priority="{self.views_qweb_id.priority}">
                                        <xpath expr="{self.xpath_route}" position="{self.position}">  
                                         <br/>
-                                        <div t-if="{self.condition}">
+                                        <div>
                                           <table style="border:none !important;">
                                             <tr style="border:none !important;">
                                                 <span
