@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record id="inherited_model_view_form" model="ir.ui.view">
+        <field name="name">test</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//div[@id='cdn_setting']" position="after">
+            <div class="col-12 col-lg-6 o_setting_box" id="website_configuration_2" groups="website.group_multi_website">
+                <div class="o_setting_left_pane">
+                    <field name="is_limit_product"/>
+                </div>
+                <div class="o_setting_right_pane">
+                    <label for="is_limit_product"/>
+                    <span class="fa fa-lg fa-globe" title="Config for limit product." groups="website.group_multi_website"/>
+                    <div class="text-muted">
+                        Product limit configuration for your website.
+                    </div>
+                </div>
+              </div>
+            </xpath>
+        </field>
+    </record>
+  </data> 
+</odoo>
+
+
