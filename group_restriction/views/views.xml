@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+
+    <record id="sale_order_form_mods" model="ir.ui.view">
+        <field name="name">sale.order.form.mods</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_move_form_mods" model="ir.ui.view">
+        <field name="name">account.move.form.mods</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_post'][1]" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_post'][2]" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_form_mods" model="ir.ui.view">
+        <field name="name">purcharse.order.form.mods</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_form_mods" model="ir.ui.view">
+        <field name="name">purcharse.order.form.mods</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                <attribute name="groups">__export__.res_groups_55_0d7a497b</attribute>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
