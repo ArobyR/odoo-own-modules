@@ -25,6 +25,6 @@ docker-compose -f docker-compose.yml -f dev-standalone.yml up
   odoo scaffold <new_name_module> mnt/extra-addons/etc...
   ```
 
-### Note: :notebook:
+## Note: :notebook:
   I changed the directories organization; look at some previous commits. 
 
