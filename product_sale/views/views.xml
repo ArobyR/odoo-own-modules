@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="product_sale_record_list">
+      <field name="name">product list</field>
+      <field name="model">product.sale</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="partner_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_sale_menu_list">
+      <field name="name">list</field>
+      <field name="model">product.sale</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="create_sale_and_send_email" type="object" class="btn btn-primary" string="Create sale"/>
+          </header>
+          <sheet>
+            <br></br>
+            <br></br>
+            <notebook>
+              <page string="partner lines">
+                <field name="partner_ids">
+                  <tree>
+                    <field name="name"/>
+                    <field name="phone"/>
+                  </tree>
+                </field>             
+              </page>
+            </notebook>
+            <notebook>
+              <page string="product lines">
+                <field name="product_ids">
+                  <tree>
+                    <field name="product_id"/>
+                    <field name="product_name"/>
+                    <field name="quantity"/>
+                    <field name="price"/>
+                    <field name="subtotal"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+            <group>
+              <group>
+              </group>
+              <group>
+                <field name="total"/>
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_window">
+      <field name="name">window</field>
+      <field name="res_model">product.sale</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <!-- Top menu item -->
+    <menuitem name="Product Sale" id="menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Menu 2" id="menu_1" parent="menu_root"/>
+  <!-- actions -->
+    <menuitem name="List" id="menu_1_list" parent="menu_1"
+              action="action_window"/>
+
+<!--
+    <menuitem name="Server to list" id="facturacion" parent="facturacion.menu_2"
+              action="facturacion.action_server"/>
+-->
+  </data>
+</odoo>
