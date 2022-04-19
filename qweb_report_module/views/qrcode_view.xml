@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="external_layout_background_inherit" model="ir.ui.view"> 
+      <field name="name">web.form.inherit</field> 
+      <field name="model">web</field> 
+      <field name="inherit_id" ref="web.external_layout_background"/> 
+      <field name="arch" type="xml"> 
+        <xpath expr="//t/div/div/ul[@class='list-inline']" position="before">
+          <p>EVALUA NUESTRO SERVICIO:</p>
+            <!-- <img t-att-src="'/report/barcode/QR/%s' % 'https://forms.office.com/r/3tsU4R3PbV'"/> -->
+           <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %
+                ('QR', 'https://forms.office.com/r/3tsU4R3PbV', 60, 60)"/>
+        </xpath> 
+      </field> 
+    </record>
+  </data>
+</odoo>
