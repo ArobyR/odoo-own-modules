@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+    <template id="inherit_view" inherit_id="web.external_layout_background">
+      <xpath expr="//t/div/div/ul[@class='list-inline']" position="before">
+        <p class="mb-0">EVALUA NUESTRO SERVICIO:</p>
+         <img class="mb-1" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' %
+                ('QR', 'https://forms.office.com/r/3tsU4R3PbV', 60, 60)"/>
+      </xpath>
+    </template>
+  </data>
+</odoo>
