@@ -1,0 +1,71 @@
+<odoo>
+  <data>
+    <template id="report_mercasid_pdf">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="self">
+          <t t-call="web.basic_layout">
+            <div class="page">
+              <div class="text-center">
+                <div>
+                  <img alt="img-logo" style="max-height: 120px; max-width: 120px;" t-att-src="'data:image/png;base64,%s' % to_text(self.company_id.logo)"/>
+                </div>
+                <span t-field="self.company_id.name"></span><br/>
+                [<span t-esc="self.partner_id.vat"/>]<span t-esc="self.partner_id.name"></span><br/>
+                <span>Disponible total:</span> <span t-esc="self.partner_id.available_store"/><br/>
+                <span>Disponible restante:</span>
+                <span t-esc="self.partner_id.get_amount(self.company_id.account_journal_id.id, self.partner_id.id)"/>
+              </div>
+              <br/>
+
+              <table class="sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Productos</th>
+                    <th scope="col" class="pr-3">Cant.</th>
+                    <th scope="col">Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-foreach="self.invoice_line_ids" t-as="order">
+                    <tr>
+                      <td><t t-esc="order.name" /></td>
+                      <td class="text-right pr-3"><t t-esc="order.quantity"/></td>
+                      <td class="text-right"><t t-esc="order.price_subtotal"/></td>
+                    </tr>
+                  </t>
+                </tbody>
+              </table>
+
+              <!--
+              <t t-foreach="self.order_line" t-as="order">
+                <div class="row">
+                  <div class="col-6">
+                    <p><t t-esc="order.display_name" /></p>
+                  </div>
+                  <div class="col-3">
+                    <p><t t-esc="order.product_uom_qty" /></p>
+                  </div>
+                  <div class="col-3">
+                    <p><t t-esc="order.price_subtotal"/></p>
+                  </div>
+                </div>
+              </t>
+              -->
+
+              <br/>
+              <br/>
+
+            <div class="text-right">
+              <span><b>Total:</b> <t t-esc="self.amount_untaxed"/></span><br/>
+              <span><b>Total ITBIS:</b> <t t-esc="self.amount_tax"/></span><br/>
+              <span><b>Total a PAGAR:</b> <t t-esc="self.amount_total"/></span>
+            </div>
+
+
+            </div>
+          </t>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

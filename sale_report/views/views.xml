@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+    <report
+      id="report_help_desk"
+      model="account.move"
+      string="Sale report"
+      report_type="qweb-pdf"
+      name="sale_report.report_mercasid_pdf"
+      paperformat="custom_paperformat_id"
+    />
+  </data>
+</odoo>
