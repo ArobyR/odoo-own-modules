@@ -45,7 +45,8 @@ class ReportModule(models.Model):
                                        <data inherit_id="{self.views_qweb_id.xml_id}" priority="{self.views_qweb_id.priority}">
                                        <xpath expr="{self.xpath_route}" position="{self.position}">  
                                         <br/>
-                                        <div>
+                                        <div style="margin-top: 45px
+                                        !important;">
                                           <table style="border:none !important;">
                                             <tr style="border:none !important;">
                                                 <span
