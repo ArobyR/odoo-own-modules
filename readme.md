@@ -16,7 +16,7 @@ docker-compose -f docker-compose.yml -f dev-standalone.yml up
   ```shell
   sudo docker ps
   ```
-  Selecting it by container ID:
+  Selecting and executing it by container ID:
   ```shell
   sudo docker exec -it <container_id> bash
   ```
