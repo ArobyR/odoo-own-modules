@@ -7,7 +7,7 @@
         """,
 
     'description': """
-        Fix function send_email adding a new field & conf. For a server so foreach that have a server conf.
+        Fix function send_email adding a new field & conf. For a server so foreach user has a server conf.
     """,
 
     'author': "ArobyR",
