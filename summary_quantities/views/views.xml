@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_summary_quantities_sale_order_inherit" model="ir.ui.view">
+      <field name="name">summary.quantities.sale.order.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="html">
+        <xpath expr="//group[@name='note_group']" position="after">
+          
+          <div class="mt-3">
+            <h3>Resumen total de las cantidades</h3>
+            <div class="row">
+              <div class="col-4">
+                <label for="total_product_uom_qty"/>
+                <field name="total_product_uom_qty"/>
+              </div>
+              <div class="col-4">
+                <label for="total_delivered_qty"/>
+                <field name="total_delivered_qty"/>
+              </div>
+              <div class="col-4">
+                <label for="total_invoice_qty"/>
+                <field name="total_invoice_qty"/>
+              </div>
+            </div>
+          </div>
+
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
