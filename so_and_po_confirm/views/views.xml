@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.button</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                    <button 
+                            name="open_purchase_wizard" 
+                            type="object" 
+                            states="draft" 
+                            string="Confirmar orden" 
+                            class="oe_highlight" 
+                            id="open_wizard" 
+                    />
+
+                </xpath>
+                <xpath expr="//header/button[@id='bid_confirm']" position="replace">
+                    <span> </span>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.button</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button 
+                            name="open_sale_wizard" 
+                            type="object" 
+                            data-hotkey="v"
+                            attrs="{'invisible': [('state', 'not in', ['no_confirm'])]}"
+                            string="Confirmar venta" 
+                            class="oe_highlight" 
+                            id="open_sale_wizard" 
+                    />
+
+                </xpath>
+                <xpath expr="//header/button[@id='action_confirm']" position="replace">
+                    <span> </span>
+                </xpath>
+                <xpath expr="//header/button[@name='action_confirm'][1]" position="replace">
+                    <span> </span>
+                </xpath>
+            </field>
+        </record>        
+    </data>
+</odoo>

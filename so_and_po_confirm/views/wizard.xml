@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="view_purchase_confirm" model="ir.ui.view">
+        <field name="name">Confirmar Orden</field>
+        <field name="model">purchase.confirm</field>
+        <field name="arch" type="xml">
+            <form string="Confirmar Orden">
+                <h2>Estas seguro de quieres confirmar la orden?</h2>
+                
+                <footer>
+                    <button name="confirm_purchase_order" 
+                            string="Confirmar" 
+                            type="object" 
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+        </record>
+
+        <record id="view_sale_confirm" model="ir.ui.view">
+        <field name="name">Confirmar Venta wizard</field>
+        <field name="model">sale.confirm</field>
+        <field name="arch" type="xml">
+            <form string="Confirmar Orden">
+                <h2>Estas seguro de quieres confirmar la venta?</h2>
+                
+                <footer>
+                    <button name="confirm_sale_order" 
+                            string="Confirmar" 
+                            type="object" 
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+        </record> 
+        
+    </data>
+</odoo>
