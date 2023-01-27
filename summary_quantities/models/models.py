@@ -25,14 +25,10 @@ class SaleOrder(models.Model):
     @api.depends('order_line.product_uom_qty', 'order_line.qty_delivered',
                  'order_line.qty_invoiced')
     def _compute_total_quantities(self):
-        total_product = 0
-        total_delivered = 0
-        total_invoice = 0
-        for line in self.order_line:
-            total_product += line.product_uom_qty
-            total_delivered += line.qty_delivered
-            total_invoice += line.qty_invoiced
-
-        self.total_product_uom_qty = total_product
-        self.total_delivered_qty = total_delivered
-        self.total_invoice_qty = total_invoice
+        for record in self:
+            record.total_product_uom_qty = sum(
+                record.order_line.mapped('product_uom_qty'))
+            record.total_delivered_qty = sum(
+                record.order_line.mapped('qty_delivered'))
+            record.total_invoice_qty = sum(
+                record.order_line.mapped('qty_invoiced'))
