@@ -10,13 +10,13 @@ class ReportModule(models.Model):
     _name = 'report.module'
     _description = 'Report Module'
 
-    xpath_route = fields.Char(string='Ruta del xpath', default='')
+    xpath_route = fields.Char(string='Xpath route', default='')
     info_report_id = fields.One2many('info.report', 'report_module_id',
-                                     string='Lineas de firmas')
+                                     string='Firm lines')
     position = fields.Char(string='Position', default='after')
     views_qweb_id = fields.Many2one(
-        'ir.ui.view', domain="[('type', '=', 'qweb')]", string='Vista')
-
+        'ir.ui.view', domain="[('type', '=', 'qweb')]", string='View')
+    name = fields.Char(related='views_qweb_id.name')
     genered_qweb_view = fields.Many2one('ir.ui.view')
 
     def unlink(self):
@@ -72,7 +72,7 @@ class ReportModule(models.Model):
 
 class InfoReport(models.Model):
     _name = 'info.report'
-    _description = 'Informacion del reporte'
+    _description = 'Info Report'
 
     report_module_id = fields.Many2one('report.module')
-    description = fields.Char(string='Descripcion:')
+    description = fields.Char(string='Description')
