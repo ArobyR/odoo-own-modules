@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Qweb_report_module",
+    'name': "Qweb report module",
 
     'summary': """
         Qweb report module
         """,
 
     'description': """
-        Long description of module's purpose
+        Module to put firms in Qweb view
     """,
 
     'author': "ArobyR",
