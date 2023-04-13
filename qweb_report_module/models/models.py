@@ -47,7 +47,7 @@ class ReportModule(models.Model):
                                         <br/>
                                         <div style="margin-top: 45px
                                         !important;">
-                                          <table style="border:none !important;">
+                                          <table class="table table-borderless" style="border:none !important;">
                                             <tr style="border:none !important;">
                                                 <span
                                                 t-foreach="{description_list}"
