@@ -52,13 +52,13 @@ class ReportModule(models.Model):
                                                 <span
                                                 t-foreach="{description_list}"
                                                 t-as="i">
-        <td style="border:none !important;padding-right:10px;">___________________________________________</td>
+        <td class="text-center" style="border:none !important;padding-right:10px;">___________________________________________</td>
                                                 </span>
                                             </tr>
                                             <tr class='text-center' style="border:none !important;">
                                               <span
                                                   t-foreach="{description_list}"
-                                                  t-as="i"><td style="border:none 
+                                                  t-as="i"><td class="text-center" style="border:none 
                                                   !important;"><t t-esc="i"/></td>
                                               </span>
                                             </tr>
