@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="view_wizard_sale_alert" model="ir.ui.view">
+        <field name="name">Alerta: limite de credito</field>
+        <field name="model">wizard.sale.alert</field>
+        <field name="arch" type="xml">
+            <form string="Alerta de limite de credito">
+                <h2>Alerta, este cliente ha sobre pasado el limite de credito</h2>
+                
+                <footer>
+                    <button name="active_is_authorized_confirm" 
+                            string="Confirmar" 
+                            groups="alert_credit_limit.overcredit_limit_authoried_group"
+                            type="object" 
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-danger" special="cancel" />
+                </footer>
+            </form>
+        </field>
+        </record> 
+    </data>
+</odoo>

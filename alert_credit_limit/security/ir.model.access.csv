@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+0access_wizard_sale_alert,wizard.sale.alert,model_wizard_sale_alert,base.group_user,1,1,1,1
+1access_wizard_sale_alert,wizard.sale.alert,model_wizard_sale_alert,alert_credit_limit.overcredit_limit_authoried_group,1,1,1,1
+0access_wizard_invoice_alert,wizard.invoice.alert,model_wizard_invoice_alert,base.group_user,1,1,1,1
+1access_wizard_invoice_alert,wizard.invoice.alert,model_wizard_invoice_alert,alert_credit_limit.overcredit_limit_authoried_group,1,1,1,1
